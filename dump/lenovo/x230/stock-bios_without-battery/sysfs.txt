@@ -1,0 +1,15 @@
+/sys/class/dmi/id/bios_date:09/24/2019
+/sys/class/dmi/id/bios_release:2.77
+/sys/class/dmi/id/bios_vendor:LENOVO
+/sys/class/dmi/id/bios_version:G2ETB7WW (2.77 )
+/sys/class/dmi/id/board_name:23257W7
+/sys/class/dmi/id/board_vendor:LENOVO
+/sys/class/dmi/id/product_family:ThinkPad X230
+/sys/class/dmi/id/product_name:23257W7
+/sys/class/power_supply/AC/online:1
+/sys/class/power_supply/AC/type:Mains
+/sys/class/power_supply/AC/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_NAME=AC
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_ONLINE=1
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains

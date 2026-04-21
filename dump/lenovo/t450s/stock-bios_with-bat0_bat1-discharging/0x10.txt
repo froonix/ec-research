@@ -1,0 +1,3 @@
+
+Writing ec 81 = 10
+a0: 60 04 ec 05 58 00 4a 00 48 fd d7 2c ff ff c0 00 

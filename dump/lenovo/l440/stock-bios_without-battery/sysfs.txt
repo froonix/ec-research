@@ -1,0 +1,15 @@
+/sys/class/dmi/id/bios_date:05/30/2018
+/sys/class/dmi/id/bios_release:1.93
+/sys/class/dmi/id/bios_vendor:LENOVO
+/sys/class/dmi/id/bios_version:J4ET93WW(1.93)
+/sys/class/dmi/id/board_name:20ASS0NW00
+/sys/class/dmi/id/board_vendor:LENOVO
+/sys/class/dmi/id/product_family:ThinkPad L440
+/sys/class/dmi/id/product_name:20ASS0NW00
+/sys/class/power_supply/ADP1/online:1
+/sys/class/power_supply/ADP1/type:Mains
+/sys/class/power_supply/ADP1/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/ADP1/uevent:POWER_SUPPLY_NAME=ADP1
+/sys/class/power_supply/ADP1/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/ADP1/uevent:POWER_SUPPLY_ONLINE=1
+/sys/class/power_supply/ADP1/uevent:POWER_SUPPLY_TYPE=Mains
