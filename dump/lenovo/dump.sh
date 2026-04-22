@@ -33,7 +33,7 @@ grep -aH . -- "${sysfs[@]}" 2>/dev/null >"sysfs.txt"
 status
 
 trap cleanup EXIT
-for page in {31..0}
+for page in {79..0}
 do
 	[[ "$page" -gt 0 ]] && filter="^(80|a0):" || filter="."
 	hex=$(printf '0x%02x' "$page")

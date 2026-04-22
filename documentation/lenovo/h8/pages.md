@@ -15,7 +15,13 @@
 | [**0x08**](#page-0x08) | 0x18        | ?                              | Unknown page details                                  |
 | **0x09** - **0x0f**    | 0x19 - 0x1f | -                              | Empty / Reserved                                      |
 
+| Page                                 | Description                    | Notes                                                 |
+| :----------------------------------- | :----------------------------- | :---------------------------------------------------- |
+| **0x20** - **0x3f**                  | ?                              | Unknown page details                                  |
+| **0x40** - ...                       | -                              | Empty / Reserved                                      |
+
 ### Summary
+#### Battery
 <table>
 	<thead>
 		<tr>
@@ -102,6 +108,16 @@
 		</tr>
 		<tr>
 			<td><b>0x09</b> - <b>0x0f</b> <br /> <b>0x19</b> - <b>0x1f</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16">(Empty / Reserved)</td>
+		</tr>
+		<tr>
+			<td><b>0x20</b> - <b>0x3f</b> <br /> <b>0x19</b> - <b>0x1f</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16">?</td>
+		</tr>
+		<tr>
+			<td><b>0x40</b> - <b>0x4f</b> <br /> <b>0x19</b> - <b>0x1f</b></td>
 			<td><code>0xa0</code></td>
 			<td colspan="16">(Empty / Reserved)</td>
 		</tr>
