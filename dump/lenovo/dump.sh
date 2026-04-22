@@ -35,12 +35,12 @@ status
 trap cleanup EXIT
 for page in {31..0}
 do
-	[[ "$page" -gt 0 ]] && filter="^a0:" || filter="."
+	[[ "$page" -gt 0 ]] && filter="^(80|a0):" || filter="."
 	hex=$(printf '0x%02x' "$page")
 	filename="$hex.txt"
 
 	status "Next EC RAM page: $hex"
 	sudo ectool -w 0x81 -z "$hex" >"$filename"
-	sudo ectool -d | grep -i -- "$filter" >>"$filename" \
+	sudo ectool -d | grep -Ei -- "$filter" >>"$filename" \
 	&& status "EC RAM page $hex dumped."
 done
