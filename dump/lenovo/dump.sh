@@ -16,6 +16,7 @@ cleanup()
 {
 	#shellcheck disable=SC2317
 	sudo ectool -w 0x81 -z 0x00
+	sudo modprobe thinkpad_acpi
 }
 
 #[[ "$EUID" != "0" ]] && error "Missing root privileges!"
@@ -33,6 +34,7 @@ grep -aH . -- "${sysfs[@]}" 2>/dev/null >"sysfs.txt"
 status
 
 trap cleanup EXIT
+sudo rmmod thinkpad_acpi battery
 for page in {79..0}
 do
 	[[ "$page" -gt 0 ]] && filter="^(80|a0):" || filter="."
