@@ -112,12 +112,12 @@
 			<td colspan="16">(Empty / Reserved)</td>
 		</tr>
 		<tr>
-			<td><b>0x20</b> - <b>0x3f</b> <br /> <b>0x19</b> - <b>0x1f</b></td>
+			<td><b>0x20</b> - <b>0x3f</b></td>
 			<td><code>0xa0</code></td>
 			<td colspan="16">?</td>
 		</tr>
 		<tr>
-			<td><b>0x40</b> - <b>0x4f</b> <br /> <b>0x19</b> - <b>0x1f</b></td>
+			<td><b>0x40</b> - ...</td>
 			<td><code>0xa0</code></td>
 			<td colspan="16">(Empty / Reserved)</td>
 		</tr>
