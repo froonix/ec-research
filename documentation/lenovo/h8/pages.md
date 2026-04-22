@@ -1,18 +1,112 @@
 ## Pages
-***Note**: The offsets for these fields usually start at **0xa0** within the EC RAM once the corresponding page is set at offset **0x81**.*
+> [!NOTE]
+> The offsets for these fields usually start at **0xa0** within the EC RAM once the corresponding page is set at offset **0x81**.
 
-| Page (BAT0)            | Page (BAT1) | Content / Function             |
-| :--------------------- | :---------- | :----------------------------- |
-| [**0x00**](#page-0x00) | 0x10        | **Dynamic Battery Data**       |
-| [**0x01**](#page-0x01) | 0x11        | **Battery Management**         |
-| [**0x02**](#page-0x02) | 0x12        | **Static Design Data**         |
-| **0x03**               | 0x13        | Empty / Reserved               |
-| [**0x04**](#page-0x04) | 0x14        | **Battery Technology**         |
-| [**0x05**](#page-0x05) | 0x15        | **Battery OEM Information**    |
-| [**0x06**](#page-0x06) | 0x16        | **Battery Model Information**  |
-| [**0x07**](#page-0x07) | 0x17        | **Battery Serial Information** |
-| [**0x08**](#page-0x08) | 0x18        | Unknown page details           |
-| **0x09** - **0x0f**    | 0x19 - 0x1f | Empty / Reserved               |
+| Page (BAT0)            | Page (BAT1) | Description                    | Notes                                                 |
+| :--------------------- | :---------- | :----------------------------- | :---------------------------------------------------- |
+| [**0x00**](#page-0x00) | 0x10        | **Dynamic Battery Data**       |                                                       |
+| [**0x01**](#page-0x01) | 0x11        | **Battery Management**         | Unknown page details                                  |
+| [**0x02**](#page-0x02) | 0x12        | **Static Design Data**         |                                                       |
+| **0x03**               | 0x13        | -                              | Empty / Reserved                                      |
+| [**0x04**](#page-0x04) | 0x14        | **Battery Technology**         |                                                       |
+| [**0x05**](#page-0x05) | 0x15        | **Battery OEM Information**    |                                                       |
+| [**0x06**](#page-0x06) | 0x16        | **Battery Model Information**  |                                                       |
+| [**0x07**](#page-0x07) | 0x17        | **Battery Serial Information** |                                                       |
+| [**0x08**](#page-0x08) | 0x18        | ?                              | Unknown page details                                  |
+| **0x09** - **0x0f**    | 0x19 - 0x1f | -                              | Empty / Reserved                                      |
+
+### Summary
+<table>
+	<thead>
+		<tr>
+			<th>Page</th>
+			<th>Offset</th>
+			<th>+0</th>
+			<th>+1</th>
+			<th>+2</th>
+			<th>+3</th>
+			<th>+4</th>
+			<th>+5</th>
+			<th>+6</th>
+			<th>+7</th>
+			<th>+8</th>
+			<th>+9</th>
+			<th>+a</th>
+			<th>+b</th>
+			<th>+c</th>
+			<th>+d</th>
+			<th>+e</th>
+			<th>+f</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="#page-0x00"><b>0x00</b></a> / <b>0x10</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="2"><b>BARC</b></td>
+			<td colspan="2"><b>BAFC</b></td>
+			<td colspan="2">[BART]</td>
+			<td colspan="2">[BACP]</td>
+			<td colspan="2"><b>BAPR</b></td>
+			<td colspan="2"><b>BAVO</b></td>
+			<td colspan="2">?</td>
+			<td colspan="2">?</td>
+		</tr>
+		<tr>
+			<td><a href="#page-0x01"><b>0x01</b></a> / <b>0x11</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16">?</td>
+		</tr>
+		<tr>
+			<td><a href="#page-0x02"><b>0x02</b></a> / <b>0x12</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="2"><b>BADC</b></td>
+			<td colspan="2"><b>BADV</b></td>
+			<td colspan="2">?</td>
+			<td colspan="2">?</td>
+			<td colspan="2">?</td>
+			<td colspan="2"><b>BASN</b></td>
+			<td colspan="2">?</td>
+			<td colspan="2">?</td>
+		</tr>
+		<tr>
+			<td><b>0x03</b> / <b>0x13</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16">(Empty / Reserved)</td>
+		</tr>
+		<tr>
+			<td><a href="#page-0x04"><b>0x04</b></a> / <b>0x14</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="4"><b>BATY</b></td>
+			<td colspan="12">(Reserved / Padding)</td>
+		</tr>
+		<tr>
+			<td><a href="#page-0x05"><b>0x05</b></a> / <b>0x15</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16"><b>BAOE</b></td>
+		</tr>
+		<tr>
+			<td><a href="#page-0x06"><b>0x06</b></a> / <b>0x16</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16"><b>BANA</b></td>
+		</tr>
+		<tr>
+			<td><a href="#page-0x07"><b>0x07</b></a> / <b>0x17</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16">[BASU]</td>
+		</tr>
+		<tr>
+			<td><a href="#page-0x08"><b>0x08</b></a> / <b>0x18</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16">?</td>
+		</tr>
+		<tr>
+			<td><b>0x09</b> - <b>0x0f</b> <br /> <b>0x19</b> - <b>0x1f</b></td>
+			<td><code>0xa0</code></td>
+			<td colspan="16">(Empty / Reserved)</td>
+		</tr>
+	</tbody>
+</table>
 
 ### Page 0x00
 | Address  | Name     | Width  | Unit     | Description                      | Notes                                            |
@@ -27,7 +121,8 @@
 | **0xae** | ?        | 16-bit | ?        | ?                                |                                                  |
 
 ### Page 0x01
-***Note**: According to coreboot, BIT(15) is BAMA.*
+> [!TIP]
+> According to coreboot, BIT(15) is BAMA.
 
 | Address  | Name     | Width   | Unit     | Description                      | Notes                                           |
 | :------- | :------- | :------ | :------- | :------------------------------- | :---------------------------------------------- |
@@ -46,7 +141,8 @@
 | **0xae** | ?        | 16-bit | ?        | ?                                |                                                  |
 
 ### Page 0x03
-Empty/Reserved: All samples returned `0x00`.
+> [!WARNING]
+> Empty/Reserved: All samples returned `0x00`.
 
 ### Page 0x04
 | Address  | Name     | Width  | Unit     | Description                      | Notes                                            |
@@ -75,7 +171,8 @@ Empty/Reserved: All samples returned `0x00`.
 | **0xa0** | ?        | ?       | ?        | ?                                | Unknown!                                        |
 
 ### Page 0x09 - 0x0f
-Empty/Reserved: All samples returned `0x00`.
+> [!WARNING]
+> Empty/Reserved: All samples returned `0x00`.
 
 ## References
 * [coreboot](https://github.com/coreboot/coreboot): `src/ec/lenovo/h8`, …
