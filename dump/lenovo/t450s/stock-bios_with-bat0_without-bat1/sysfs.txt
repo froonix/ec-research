@@ -1,0 +1,56 @@
+/sys/class/dmi/id/bios_date:08/14/2019
+/sys/class/dmi/id/bios_release:1.37
+/sys/class/dmi/id/bios_vendor:LENOVO
+/sys/class/dmi/id/bios_version:JBET73WW (1.37 )
+/sys/class/dmi/id/board_name:20BW000EGE
+/sys/class/dmi/id/board_vendor:LENOVO
+/sys/class/dmi/id/product_family:ThinkPad T450s
+/sys/class/dmi/id/product_name:20BW000EGE
+/sys/class/power_supply/AC/online:1
+/sys/class/power_supply/AC/type:Mains
+/sys/class/power_supply/AC/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_NAME=AC
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_ONLINE=1
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/BAT0/alarm:1032000
+/sys/class/power_supply/BAT0/capacity:58
+/sys/class/power_supply/BAT0/capacity_level:Normal
+/sys/class/power_supply/BAT0/charge_behaviour:[auto] inhibit-charge force-discharge
+/sys/class/power_supply/BAT0/charge_control_end_threshold:80
+/sys/class/power_supply/BAT0/charge_control_start_threshold:50
+/sys/class/power_supply/BAT0/charge_start_threshold:50
+/sys/class/power_supply/BAT0/charge_stop_threshold:80
+/sys/class/power_supply/BAT0/cycle_count:0
+/sys/class/power_supply/BAT0/energy_full:20650000
+/sys/class/power_supply/BAT0/energy_full_design:23200000
+/sys/class/power_supply/BAT0/energy_now:12080000
+/sys/class/power_supply/BAT0/manufacturer:SONY
+/sys/class/power_supply/BAT0/model_name:45N1111
+/sys/class/power_supply/BAT0/power_now:0
+/sys/class/power_supply/BAT0/present:1
+/sys/class/power_supply/BAT0/serial_number:11183
+/sys/class/power_supply/BAT0/status:Not charging
+/sys/class/power_supply/BAT0/technology:Li-poly
+/sys/class/power_supply/BAT0/type:Battery
+/sys/class/power_supply/BAT0/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_NAME=BAT0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_STATUS=Not charging
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_PRESENT=1
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TECHNOLOGY=Li-poly
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CYCLE_COUNT=0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_VOLTAGE_MIN_DESIGN=11100000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_VOLTAGE_NOW=11352000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_POWER_NOW=0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_ENERGY_FULL_DESIGN=23200000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_ENERGY_FULL=20650000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_ENERGY_NOW=12080000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CAPACITY=58
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CAPACITY_LEVEL=Normal
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_MODEL_NAME=45N1111
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_MANUFACTURER=SONY
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_SERIAL_NUMBER=11183
+/sys/class/power_supply/BAT0/voltage_min_design:11100000
+/sys/class/power_supply/BAT0/voltage_now:11352000

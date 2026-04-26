@@ -1,0 +1,97 @@
+/sys/class/dmi/id/bios_date:08/14/2019
+/sys/class/dmi/id/bios_release:1.37
+/sys/class/dmi/id/bios_vendor:LENOVO
+/sys/class/dmi/id/bios_version:JBET73WW (1.37 )
+/sys/class/dmi/id/board_name:20BW000EGE
+/sys/class/dmi/id/board_vendor:LENOVO
+/sys/class/dmi/id/product_family:ThinkPad T450s
+/sys/class/dmi/id/product_name:20BW000EGE
+/sys/class/power_supply/AC/online:1
+/sys/class/power_supply/AC/type:Mains
+/sys/class/power_supply/AC/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_NAME=AC
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_ONLINE=1
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/BAT0/alarm:1032000
+/sys/class/power_supply/BAT0/capacity:61
+/sys/class/power_supply/BAT0/capacity_level:Normal
+/sys/class/power_supply/BAT0/charge_behaviour:auto [inhibit-charge] force-discharge
+/sys/class/power_supply/BAT0/charge_control_end_threshold:80
+/sys/class/power_supply/BAT0/charge_control_start_threshold:50
+/sys/class/power_supply/BAT0/charge_start_threshold:50
+/sys/class/power_supply/BAT0/charge_stop_threshold:80
+/sys/class/power_supply/BAT0/cycle_count:0
+/sys/class/power_supply/BAT0/energy_full:20650000
+/sys/class/power_supply/BAT0/energy_full_design:23200000
+/sys/class/power_supply/BAT0/energy_now:12540000
+/sys/class/power_supply/BAT0/manufacturer:SONY
+/sys/class/power_supply/BAT0/model_name:45N1111
+/sys/class/power_supply/BAT0/power_now:0
+/sys/class/power_supply/BAT0/present:1
+/sys/class/power_supply/BAT0/serial_number:11183
+/sys/class/power_supply/BAT0/status:Not charging
+/sys/class/power_supply/BAT0/technology:Li-poly
+/sys/class/power_supply/BAT0/type:Battery
+/sys/class/power_supply/BAT0/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_NAME=BAT0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_STATUS=Not charging
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_PRESENT=1
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TECHNOLOGY=Li-poly
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CYCLE_COUNT=0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_VOLTAGE_MIN_DESIGN=11100000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_VOLTAGE_NOW=11374000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_POWER_NOW=0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_ENERGY_FULL_DESIGN=23200000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_ENERGY_FULL=20650000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_ENERGY_NOW=12540000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CAPACITY=61
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CAPACITY_LEVEL=Normal
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_MODEL_NAME=45N1111
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_MANUFACTURER=SONY
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_SERIAL_NUMBER=11183
+/sys/class/power_supply/BAT0/voltage_min_design:11100000
+/sys/class/power_supply/BAT0/voltage_now:11374000
+/sys/class/power_supply/BAT1/alarm:758000
+/sys/class/power_supply/BAT1/capacity:71
+/sys/class/power_supply/BAT1/capacity_level:Normal
+/sys/class/power_supply/BAT1/charge_behaviour:auto [inhibit-charge] force-discharge
+/sys/class/power_supply/BAT1/charge_control_end_threshold:80
+/sys/class/power_supply/BAT1/charge_control_start_threshold:75
+/sys/class/power_supply/BAT1/charge_start_threshold:75
+/sys/class/power_supply/BAT1/charge_stop_threshold:80
+/sys/class/power_supply/BAT1/cycle_count:0
+/sys/class/power_supply/BAT1/energy_full:15160000
+/sys/class/power_supply/BAT1/energy_full_design:23480000
+/sys/class/power_supply/BAT1/energy_now:10690000
+/sys/class/power_supply/BAT1/manufacturer:LGC
+/sys/class/power_supply/BAT1/model_name:45N1127
+/sys/class/power_supply/BAT1/power_now:0
+/sys/class/power_supply/BAT1/present:1
+/sys/class/power_supply/BAT1/serial_number: 2896
+/sys/class/power_supply/BAT1/status:Not charging
+/sys/class/power_supply/BAT1/technology:Li-ion
+/sys/class/power_supply/BAT1/type:Battery
+/sys/class/power_supply/BAT1/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_NAME=BAT1
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_STATUS=Not charging
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_PRESENT=1
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_TECHNOLOGY=Li-ion
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_CYCLE_COUNT=0
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_VOLTAGE_MIN_DESIGN=11400000
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_VOLTAGE_NOW=11996000
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_POWER_NOW=0
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_ENERGY_FULL_DESIGN=23480000
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_ENERGY_FULL=15160000
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_ENERGY_NOW=10690000
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_CAPACITY=71
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_CAPACITY_LEVEL=Normal
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_MODEL_NAME=45N1127
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_MANUFACTURER=LGC
+/sys/class/power_supply/BAT1/uevent:POWER_SUPPLY_SERIAL_NUMBER= 2896
+/sys/class/power_supply/BAT1/voltage_min_design:11400000
+/sys/class/power_supply/BAT1/voltage_now:11996000
