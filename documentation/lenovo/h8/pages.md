@@ -1,4 +1,7 @@
 ## Pages
+> [!CAUTION]
+> Pages are unsupported on some devices, e.g. L440 and similar hardware.
+
 > [!NOTE]
 > The offsets for these fields usually start at **0xa0** within the EC RAM once the corresponding page is set at offset **0x81**.
 
