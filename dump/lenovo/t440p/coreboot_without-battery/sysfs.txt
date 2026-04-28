@@ -1,0 +1,15 @@
+/sys/class/dmi/id/bios_date:04/28/2026
+/sys/class/dmi/id/bios_release:26.3
+/sys/class/dmi/id/bios_vendor:coreboot
+/sys/class/dmi/id/bios_version:26.03-342-ga441172dfeb5
+/sys/class/dmi/id/board_name:ThinkPad T440p
+/sys/class/dmi/id/board_vendor:LENOVO
+/sys/class/dmi/id/product_family:ThinkPad T440p
+/sys/class/dmi/id/product_name:ThinkPad T440p
+/sys/class/power_supply/AC/online:1
+/sys/class/power_supply/AC/type:Mains
+/sys/class/power_supply/AC/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_NAME=AC
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_ONLINE=1
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
