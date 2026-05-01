@@ -1,0 +1,56 @@
+/sys/class/dmi/id/bios_date:04/29/2026
+/sys/class/dmi/id/bios_release:26.3
+/sys/class/dmi/id/bios_vendor:coreboot
+/sys/class/dmi/id/bios_version:26.03-342-g1e1a71d7d920
+/sys/class/dmi/id/board_name:ThinkPad T440p
+/sys/class/dmi/id/board_vendor:LENOVO
+/sys/class/dmi/id/product_family:ThinkPad T440p
+/sys/class/dmi/id/product_name:ThinkPad T440p
+/sys/class/power_supply/AC/online:1
+/sys/class/power_supply/AC/type:Mains
+/sys/class/power_supply/AC/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_NAME=AC
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_ONLINE=1
+/sys/class/power_supply/AC/uevent:POWER_SUPPLY_TYPE=Mains
+/sys/class/power_supply/BAT0/alarm:0
+/sys/class/power_supply/BAT0/capacity:100
+/sys/class/power_supply/BAT0/capacity_level:Normal
+/sys/class/power_supply/BAT0/charge_behaviour:[auto] inhibit-charge force-discharge
+/sys/class/power_supply/BAT0/charge_control_end_threshold:100
+/sys/class/power_supply/BAT0/charge_control_start_threshold:97
+/sys/class/power_supply/BAT0/charge_full:4648000
+/sys/class/power_supply/BAT0/charge_full_design:5616000
+/sys/class/power_supply/BAT0/charge_now:4640000
+/sys/class/power_supply/BAT0/charge_start_threshold:97
+/sys/class/power_supply/BAT0/charge_stop_threshold:100
+/sys/class/power_supply/BAT0/current_now:0
+/sys/class/power_supply/BAT0/cycle_count:0
+/sys/class/power_supply/BAT0/manufacturer:SANYO
+/sys/class/power_supply/BAT0/model_name:45N1769
+/sys/class/power_supply/BAT0/present:1
+/sys/class/power_supply/BAT0/serial_number:  479
+/sys/class/power_supply/BAT0/status:Not charging
+/sys/class/power_supply/BAT0/technology:Li-ion
+/sys/class/power_supply/BAT0/type:Battery
+/sys/class/power_supply/BAT0/uevent:DEVTYPE=power_supply
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_NAME=BAT0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_STATUS=Not charging
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_PRESENT=1
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TECHNOLOGY=Li-ion
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CYCLE_COUNT=0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_VOLTAGE_MIN_DESIGN=10800000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_VOLTAGE_NOW=12371000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CURRENT_NOW=0
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CHARGE_FULL_DESIGN=5616000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CHARGE_FULL=4648000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CHARGE_NOW=4640000
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CAPACITY=100
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_CAPACITY_LEVEL=Normal
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_TYPE=Battery
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_MODEL_NAME=45N1769
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_MANUFACTURER=SANYO
+/sys/class/power_supply/BAT0/uevent:POWER_SUPPLY_SERIAL_NUMBER=  479
+/sys/class/power_supply/BAT0/voltage_min_design:10800000
+/sys/class/power_supply/BAT0/voltage_now:12371000
