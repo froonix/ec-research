@@ -5,6 +5,11 @@
 > [!NOTE]
 > The offsets for these fields usually start at **0xa0** within the EC RAM once the corresponding page is set at offset **0x81**.
 
+> [!IMPORTANT]
+> Always use 16-bit (or wider) aligned fields for EC RAM access, especially in the **0xa0**-**0xaf** range.
+> Never read single bytes (8-bit) or single bits from these offsets.
+> Accessing unaligned or narrow fields can cause the EC to return inconsistent or "garbage" data.
+
 | Page (BAT0)            | Page (BAT1) | Description                    | Notes                                                 |
 | :--------------------- | :---------- | :----------------------------- | :---------------------------------------------------- |
 | [**0x00**](#page-0x00) | 0x10        | **Dynamic Battery Data**       |                                                       |
@@ -141,7 +146,7 @@
 
 ### Page 0x01
 > [!TIP]
-> According to coreboot, BIT(15) is BAMA.
+> According to coreboot, BIT(15) is BAMA. Always read full 16-bit at offset 0xa0!
 
 | Address  | Name     | Width   | Unit     | Description                      | Notes                                           |
 | :------- | :------- | :------ | :------- | :------------------------------- | :---------------------------------------------- |
