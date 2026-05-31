@@ -42,7 +42,7 @@ grep -aH . -- "${sysfs[@]}" 2>/dev/null >"sysfs.txt"
 status
 
 trap cleanup EXIT
-rmmod thinkpad_acpi battery
+rmmod tp_smapi thinkpad_acpi battery
 for page in {79..0}
 do
 	[[ "$page" -gt 0 ]] && filter="^(80|a0):" || filter="."
