@@ -37,6 +37,9 @@ sysfs+=(/sys/class/dmi/id/board_{name,vendor})
 sysfs+=(/sys/class/dmi/id/product_{family,name})
 sysfs+=(/sys/class/power_supply/*/*)
 
+smapi=/sys/devices/platform/smapi
+[[ -e "$smapi" ]] && sysfs+=("$smapi"/*/*)
+
 status "Gathering sysfs data: ${#sysfs[@]} file(s)"
 grep -aH . -- "${sysfs[@]}" 2>/dev/null >"sysfs.txt"
 status
