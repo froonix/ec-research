@@ -65,7 +65,7 @@ cleanup()
 	local i
 
 	status "Resetting EC RAM page"
-	ectool -w 0x81 -z 0x00 | grep -v '^$'
+	switchPage 0x00 | grep -v '^$'
 
 	status
 	status "Loading ${#imod[@]} kernel module(s)"
@@ -82,6 +82,11 @@ cleanup()
 		status "Deleting temporary directory: $tmpdir"
 		rm -rf "$tmpdir"
 	fi
+}
+
+switchPage()
+{
+	ectool -w 0x81 -z "$1"
 }
 
 [[ "$EUID" == "0" ]] || error "Missing root privileges!"
@@ -148,7 +153,7 @@ do
 	filename="$tmpdir/$hex.txt"
 
 	status "Next EC RAM page: $hex" | prefix
-	ectool -w 0x81 -z "$hex" >"$filename"
+	switchPage "$hex" >"$filename"
 	ectool -d | grep -Ei -- "$filter" >>"$filename" \
 	&& status "EC RAM page $hex dumped." | indent
 done
