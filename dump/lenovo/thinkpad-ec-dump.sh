@@ -23,17 +23,29 @@ sysfs+=(/sys/class/power_supply/*/*)
 smapi=/sys/devices/platform/smapi
 [[ -e "$smapi" ]] && sysfs+=("$smapi"/*/*)
 
+# Poor man's ThinkPad detection for safety.
+tpdetect="/sys/class/dmi/id/product_family"
+tpstring="ThinkPad"
+
 # Filename for final TAR archive. Will be saved (as root) in current working directory!
 tarfile="$(basename "$0" | sed -r 's/\.[^.]+$//').$(date --utc +'%Y%m%d-%H%M%S').tgz"
 
 prefix()
 {
-	sed 's/^/ » /'
+	sed 's/^/  - /'
 }
 
 indent()
 {
-	sed 's/^/   /'
+	sed 's/^/    /'
+}
+
+printList()
+{
+	for line in "$@"
+	do
+		status "$line" | prefix | indent
+	done
 }
 
 status()
@@ -72,31 +84,36 @@ cleanup()
 	fi
 }
 
-[[ "$EUID" != "0" ]] && error "Missing root privileges!"
+[[ "$EUID" == "0" ]] || error "Missing root privileges!"
 command -v ectool &>/dev/null || error "ectool not found!"
+grep -qF -- "$tpstring" "$tpdetect" || error "Not a ThinkPad!"
+[[ "${#sysfs[@]}" -gt 0 ]] || error "Empty sysfs list!"
 
 status "$(basename "$0") by Christian Schrötter <cs@fnx.li>"
 status "Original source: https://github.com/froonix/ec-research"
 status
 status "Summary of the actions this script performs:"
 status
-status "  1) Creating a temporary directory."
-status "  2) Collecting various files from sysfs:"
-for file in "${sysfs[@]}"; do status "     - $file"; done
-status "  3) Unloading various conflicting kernel modules:"
-for kmod in "${rmod[@]}"; do status "     - $kmod"; done
-status "  4) Dumping ${#pages[@]} page(s) from EC RAM."
-status "  5) Creating a TAR file in current directory:"
-status "     - $(pwd)/$tarfile"
-status "  6) Cleanup:"
-status "     - Resetting EC RAM page to 0x00."
-status "     - Loading all removed kernel modules."
-status "     - Deleting temporary directory."
+status "   1) Creating a temporary directory."
+status "   2) Collecting various files from sysfs:"
+printList "${sysfs[@]}"
+status "   3) Unloading various conflicting kernel modules:"
+printList "${rmod[@]}"
+status "   4) Dumping ${#pages[@]} page(s) directly from EC RAM with ectool."
+status "      This step will write to the EC RAM to switch pages!"
+status "   5) Creating a TAR file in current directory:"
+printList "$(pwd)/$tarfile"
+status "   6) Cleanup:"
+printList "Resetting EC RAM page to 0x00."
+printList "Loading all removed kernel modules."
+printList "Deleting temporary directory."
 status
 status "Important: It cannot be completely ruled out that the EC RAM may"
 status "temporarily contain individual keystrokes, among other things,"
 status "since the EC in ThinkPads also controls some keyboard-related"
-status "functions. Do not proceed if this could be a problem!"
+status "functions. Don't proceed if this could be a problem."
+status
+status "DON'T EXECUTE THIS SCRIPT ON A THINKPAD WITHOUT AN H8-COMPATIBLE EC!"
 status
 read -rp "Do you really want to continue? [y/N] " reply
 [[ "${reply^^}" == "Y" ]] || error "Aborting."
@@ -106,6 +123,7 @@ tmpdir=
 trap cleanup EXIT
 tmpdir=$(mktemp -d ) || { trap - EXIT; error "mktemp failed!"; }
 status "Temporary directory created: $tmpdir"
+status
 
 status "Gathering sysfs data: ${#sysfs[@]} file(s)"
 grep -aH . -- "${sysfs[@]}" 2>/dev/null >"$tmpdir/sysfs.txt"
