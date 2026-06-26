@@ -119,6 +119,8 @@ status "since the EC in ThinkPads also controls some keyboard-related"
 status "functions. Don't proceed if this could be a problem."
 status
 status "DON'T EXECUTE THIS SCRIPT ON A THINKPAD WITHOUT AN H8-COMPATIBLE EC!"
+status "EVEN ON COMPATIBLE THINKPADS YOUR DEVICE OR OPERATING SYSTEM MIGHT CRASH."
+status "SAVE IMPORTANT DOCUMENTS AND CLOSE ALL APPLICATIONS BEFORE CONTINUING..."
 status
 read -rp "Do you really want to continue? [y/N] " reply
 [[ "${reply^^}" == "Y" ]] || error "Aborting."
@@ -148,7 +150,10 @@ status
 status "Dumping EC RAM: ${#pages[@]} page(s)"
 for page in "${pages[@]}"
 do
-	[[ "$page" -gt 0 ]] && filter="^(80|a0):" || filter="."
+	[[ "$page" -gt 0 ]] \
+	&& filter="^(80|a0):" \
+	|| filter="."
+
 	hex=$(printf '0x%02x' "$page")
 	filename="$tmpdir/$hex.txt"
 
@@ -160,7 +165,7 @@ done
 status
 
 status "Creating TAR file"
-tar -ca -C "$tmpdir" -f "$tarfile" . \
+tar -cva -C "$tmpdir" -f "$tarfile" . 2>&1 | prefix \
 || error "Could not create TAR file!"
 status
 
