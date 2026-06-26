@@ -84,15 +84,103 @@ cleanup()
 	fi
 }
 
+int2hex()
+{
+	printf '0x%02x' "$1"
+}
+
 switchPage()
 {
 	ectool -w 0x81 -z "$1"
+}
+
+getDump()
+{
+	filename="$tmpdir/$(int2hex "$1").txt"
+	[[ -f "$filename" ]] || return 1
+
+	grep -i -- "^$2:" "$filename"  | getValues
+}
+
+getLine()
+{
+	getDump 0 "$1"
+}
+
+getPage()
+{
+	getDump "$1" a0
+}
+
+getValues()
+{
+	cut -d ' ' -f 2-
+}
+
+getFields()
+{
+	cut -d ' ' -f "$1"
+}
+
+littleEndian()
+{
+	local l
+	local h
+	local v
+
+	#shellcheck disable=SC2162
+	read l h
+	v=$(( (0x$h<<8) | 0x$l ))
+	printf '%d' "$v"
+}
+
+getByte()
+{
+	local v
+	local b
+
+	v=$(cat)
+	b=$((0x$v & 0xff))
+	printf '%d' "$b"
+}
+
+getBit()
+{
+	local s
+	local v
+	local b
+
+	v=$(cat)
+	s=$(printf '%d' "$1")
+	b=$(( (0x$v>>s) & 0x1 ))
+	printf '%d' "$b"
+}
+
+decodeDate()
+{
+	local v
+	local y
+	local m
+	local d
+
+	v=$(littleEndian)
+	y=$(( (v>>9) + 1980 ))
+	m=$(( (v>>5) & 0xf ))
+	d=$(( v & 0x1f ))
+
+	printf "%04d-%02d-%02d\n" "$y" "$m" "$d"
+}
+
+getString()
+{
+	sed -r 's/00( ..)*//' | xxd -r -p
 }
 
 [[ "$EUID" == "0" ]] || error "Missing root privileges!"
 command -v ectool &>/dev/null || error "ectool not found!"
 grep -qF -- "$tpstring" "$tpdetect" || error "Not a ThinkPad!"
 [[ "${#sysfs[@]}" -gt 0 ]] || error "Empty sysfs list!"
+command -v xxd &>/dev/null || error "xxd not found!"
 
 status "$(basename "$0") by Christian Schrötter <cs@fnx.li>"
 status "Original source: https://github.com/froonix/ec-research"
@@ -108,7 +196,8 @@ status "   4) Dumping ${#pages[@]} page(s) directly from EC RAM with ectool."
 status "      This step will write to the EC RAM to switch pages!"
 status "   5) Creating a TAR file in current directory:"
 printList "$(pwd)/$tarfile"
-status "   6) Cleaning up:"
+status "   6) Decoding some battery details."
+status "   7) Cleaning up:"
 printList "Resetting EC RAM page to 0x00."
 printList "Loading all removed kernel modules."
 printList "Deleting temporary directory."
@@ -119,6 +208,8 @@ status "since the EC in ThinkPads also controls some keyboard-related"
 status "functions. Don't proceed if this could be a problem."
 status
 status "DON'T EXECUTE THIS SCRIPT ON A THINKPAD WITHOUT AN H8-COMPATIBLE EC!"
+status "EVEN ON COMPATIBLE THINKPADS YOUR DEVICE OR OPERATING SYSTEM MIGHT CRASH."
+status "SAVE IMPORTANT DOCUMENTS AND CLOSE ALL APPLICATIONS BEFORE CONTINUING..."
 status
 read -rp "Do you really want to continue? [y/N] " reply
 [[ "${reply^^}" == "Y" ]] || error "Aborting."
@@ -148,20 +239,52 @@ status
 status "Dumping EC RAM: ${#pages[@]} page(s)"
 for page in "${pages[@]}"
 do
-	[[ "$page" -gt 0 ]] && filter="^(80|a0):" || filter="."
-	hex=$(printf '0x%02x' "$page")
+	[[ "$page" -gt 0 ]] \
+	&& filter="^(80|a0):" \
+	|| filter="."
+
+	hex=$(int2hex "$page")
 	filename="$tmpdir/$hex.txt"
 
 	status "Next EC RAM page: $hex" | prefix
 	switchPage "$hex" >"$filename"
-	ectool -d | grep -Ei -- "$filter" >>"$filename" \
-	&& status "EC RAM page $hex dumped." | indent
+	ectool -d | grep -Ei -- "$filter" >>"$filename"
+	realPage=$(getDump "$page" 80 | getFields 2 | getByte)
+
+	if [[ "$realPage" == "$page" ]]
+	then
+		status "EC RAM page $hex dumped." | indent
+	else
+		status "FAILED! Got page $(int2hex "$realPage") instead." | indent
+		rm -f "$filename"
+	fi
 done
 status
 
 status "Creating TAR file"
-tar -ca -C "$tmpdir" -f "$tarfile" . \
+tar -cva -C "$tmpdir" -f "$tarfile" . 2>&1 | prefix \
 || error "Could not create TAR file!"
+status
+
+status "Battery details:"
+for id in {0,1}
+do
+	bat="BAT$id"
+	offset=$((id * 16))
+	status "$bat:" | prefix
+
+	# Battery present? (Bit 7 in register 0x38/0x39)
+	bpr=$(getLine 30 | getFields "$((9 + id))" | getBit 7)
+	[[ "$bpr" == "1" ]] || { printList "Not available"; continue; }
+
+	printList "Manufacturer:     $(getPage "$((offset + 5))" | getString)"
+	printList "Model (FRU):      $(getPage "$((offset + 6))" | getString)"
+	printList "Barcode (S/N):    $(getPage "$((offset + 7))" | getString)"
+	printList "Manufacture Date: $(getPage "$((offset + 2))" | getFields 9-10 | decodeDate)"
+	printList "First Use Date:   $(getPage "$((offset + 2))" | getFields 5-6 | decodeDate)"
+	printList "Chemistry:        $(getPage "$((offset + 4))" | getString)"
+	printList "Cycle Count:      $(getPage "$((offset + 1))" | getFields 5-6 | littleEndian)"
+done
 status
 
 cleanup
